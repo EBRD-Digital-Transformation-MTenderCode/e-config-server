@@ -27,7 +27,7 @@
         <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
         <docker-maven-plugin.version>0.23.0</docker-maven-plugin.version>
-        <docker-account>eprocurement</docker-account>
+        <docker-account>docker-registry.eprocurement.systems</docker-account>
     </properties>
 
     <profiles>
@@ -271,9 +271,10 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker-maven-plugin.version}</version>
                 <configuration>
+                    <registry>docker-registry.eprocurement.systems</registry>
                     <images>
                         <image>
-                            <name>${docker-account}/${project.artifactId}:${project.version}</name>
+                            <name>${project.artifactId}:${project.version}</name>
                             <build>
                                 <from>openjdk:8-jre-alpine</from>
                                 <ports>
