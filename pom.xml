@@ -6,7 +6,7 @@
 
     <groupId>com.procurement</groupId>
     <artifactId>config-server</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,6 +15,7 @@
     </parent>
 
     <properties>
+        <final-artifact-name>${project.artifactId}-${project.version}</final-artifact-name>
         <project.service.port>8888</project.service.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -25,6 +26,8 @@
         <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
         <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
+        <docker-maven-plugin.version>0.23.0</docker-maven-plugin.version>
+        <docker-account>eprocurement</docker-account>
     </properties>
 
     <profiles>
@@ -263,7 +266,35 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>${docker-maven-plugin.version}</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker-account}/${project.artifactId}:${project.version}</name>
+                            <build>
+                                <from>openjdk:8-jre-alpine</from>
+                                <ports>
+                                    <port>${project.service.port}</port>
+                                </ports>
+                                <entryPoint>
+                                    <exec>
+                                        <arg>java</arg>
+                                        <arg>-jar</arg>
+                                        <arg>/maven/${final-artifact-name}.jar</arg>
+                                    </exec>
+                                </entryPoint>
+                                <nocache/>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
