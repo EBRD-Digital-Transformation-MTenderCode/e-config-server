@@ -6,7 +6,7 @@
 
     <groupId>com.procurement</groupId>
     <artifactId>config-server</artifactId>
-    <version>1.0</version>
+    <version>${teamcity.year}.${teamcity.month}.${build.number}</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
