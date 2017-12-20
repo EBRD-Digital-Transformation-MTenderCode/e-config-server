@@ -20,14 +20,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+        <docker-maven-plugin.version>0.23.0</docker-maven-plugin.version>
+        <docker-account>docker-registry.eprocurement.systems</docker-account>
+        <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
         <junit-jupiter.version>5.0.0</junit-jupiter.version>
         <junit-platform.version>1.0.0</junit-platform.version>
         <maven-checkstyle-plugin.version>2.17</maven-checkstyle-plugin.version>
-        <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
         <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.19</maven-failsafe-plugin.version>
-        <docker-maven-plugin.version>0.23.0</docker-maven-plugin.version>
-        <docker-account>docker-registry.eprocurement.systems</docker-account>
+        <spring-cloud-dependencies.version>Finchley.M4</spring-cloud-dependencies.version>
     </properties>
 
     <profiles>
@@ -167,6 +169,18 @@
         </profile>
     </profiles>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -208,18 +222,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.M4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <resources>
