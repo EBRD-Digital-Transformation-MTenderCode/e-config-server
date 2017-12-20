@@ -271,9 +271,9 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>${docker-maven-plugin.version}</version>
                 <configuration>
-                    <registry>docker-registry.eprocurement.systems</registry>
                     <images>
                         <image>
+                            <registry>docker-registry.eprocurement.systems</registry>
                             <name>${project.artifactId}:${project.version}</name>
                             <build>
                                 <from>openjdk:8-jre-alpine</from>
