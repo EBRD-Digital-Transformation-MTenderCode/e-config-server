@@ -5,4 +5,4 @@ server:
 #Application name
 spring:
   application:
-    name: e-config-server
+    name: config-server
