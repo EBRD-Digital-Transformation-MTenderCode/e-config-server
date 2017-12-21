@@ -24,7 +24,7 @@
         <java.version>1.8</java.version>
 
         <docker-maven-plugin.version>0.23.0</docker-maven-plugin.version>
-        <docker-regestry>docker-registry.eprocurement.systems</docker-regestry>
+        <docker-registry>docker-registry.eprocurement.systems</docker-registry>
         <spring-cloud-dependencies.version>Finchley.M4</spring-cloud-dependencies.version>
     </properties>
 
@@ -71,8 +71,8 @@
                 <configuration>
                     <images>
                         <image>
-                            <registry>${docker-regestry}</registry>
-                            <name>${project.artifactId}:${project.version}</name>
+                            <registry>${docker-registry}</registry>
+                            <name>${docker-registry}/${project.artifactId}:${project.version}</name>
                             <build>
                                 <from>openjdk:8-jre-alpine</from>
                                 <tags>latest</tags>
