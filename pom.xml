@@ -82,6 +82,9 @@
                                 <entryPoint>
                                     <exec>
                                         <arg>java</arg>
+                                        <arg>-Dspring.cloud.config.server.git.uri=${GIT_URL}</arg>
+                                        <arg>-Dspring.cloud.config.server.git.username=${GIT_USERNAME}</arg>
+                                        <arg>-Dspring.cloud.config.server.git.password=${GIT_PASSWORD}</arg>
                                         <arg>-jar</arg>
                                         <arg>/maven/${final-artifact-name}.jar</arg>
                                     </exec>
