@@ -74,21 +74,7 @@
                             <registry>${docker-registry}</registry>
                             <name>${docker-registry}/${project.artifactId}:${project.version}</name>
                             <build>
-                                <from>openjdk:8-jre-alpine</from>
-                                <tags>latest</tags>
-                                <ports>
-                                    <port>${project.service.port}</port>
-                                </ports>
-                                <entryPoint>
-                                    <exec>
-                                        <arg>java</arg>
-                                        <arg>-Dspring.cloud.config.server.git.uri=${GIT_URL}</arg>
-                                        <arg>-Dspring.cloud.config.server.git.username=${GIT_USERNAME}</arg>
-                                        <arg>-Dspring.cloud.config.server.git.password=${GIT_PASSWORD}</arg>
-                                        <arg>-jar</arg>
-                                        <arg>/maven/${final-artifact-name}.jar</arg>
-                                    </exec>
-                                </entryPoint>
+                                <dockerFileDir>${project.basedir}/src/main/docker</dockerFileDir>
                                 <nocache/>
                                 <assembly>
                                     <descriptorRef>artifact</descriptorRef>
