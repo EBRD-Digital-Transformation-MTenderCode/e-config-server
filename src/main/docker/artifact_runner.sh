@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ -n "$1" ]
 then
-  command="java"
+  command="java -Xmx128m"
 
   for param in `printenv | awk '/^__PROP_/{print $0}'`
   do
