@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.procurement</groupId>
-    <artifactId>config-server</artifactId>
+    <artifactId>e-config-server</artifactId>
     <version>17.12.1</version>
 
-    <name>config-service</name>
+    <name>e-config-service</name>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
