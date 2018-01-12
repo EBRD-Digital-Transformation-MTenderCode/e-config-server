@@ -6,7 +6,7 @@ docker network create \
   --driver overlay \
   --subnet 192.168.100.0/24 \
   --gateway 192.168.100.1 \
-  my-network
+  ocds-network
 
 
 #****************************************#
@@ -15,10 +15,10 @@ docker network create \
 #****************************************#
 
 docker service create --name="config-server-1" \
---env __PROP_spring_cloud_config_server_git_uri= \
---env __PROP_spring_cloud_config_server_git_username= \
---env __PROP_spring_cloud_config_server_git_password= \
---publish published=8700,target=8700 \
---network my-network \
---with-registry-auth \
-docker-registry.eprocurement.systems/config-server:17.12.1
+  --env __PROP_spring_cloud_config_server_git_uri= \
+  --env __PROP_spring_cloud_config_server_git_username= \
+  --env __PROP_spring_cloud_config_server_git_password= \
+  --publish published=8700,target=8700 \
+  --network ocds-network \
+  --with-registry-auth \
+  docker-registry.eprocurement.systems/e-config-server:17.12.1
