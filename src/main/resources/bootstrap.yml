@@ -6,3 +6,8 @@ server:
 spring:
   application:
     name: config-server
+
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 192.168
