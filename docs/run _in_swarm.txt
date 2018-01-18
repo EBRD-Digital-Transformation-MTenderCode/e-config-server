@@ -20,5 +20,6 @@ docker service create --name="config-server-1" \
   --env __PROP_spring_cloud_config_server_git_password= \
   --publish published=8700,target=8700 \
   --network ocds-network \
+  --dns 10.0.10.115 \
   --with-registry-auth \
   docker-registry.eprocurement.systems/e-config-server:17.12.1
