@@ -20,5 +20,5 @@ docker run --rm -d --name=config-server-1 \
   --env __PROP_spring_cloud_config_server_git_password= \
   --publish 8700:8700 \
   --network ocds-network \
-  --dns 10.0.10.115 \
-  docker-registry.eprocurement.systems/e-config-server:17.12.1
+  --dns 10.0.20.115 \
+  dev.docker-registry.eprocurement.systems/e-config-server:17.12.1
