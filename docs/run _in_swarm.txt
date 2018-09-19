@@ -14,7 +14,7 @@ docker network create \
 # Need assign uri, username and password #
 #****************************************#
 
-docker service create --name="config-server-1" \
+docker service create --name="config-server" \
   --env __PROP_spring_cloud_config_server_git_uri= \
   --env __PROP_spring_cloud_config_server_git_username= \
   --env __PROP_spring_cloud_config_server_git_password= \
@@ -22,4 +22,4 @@ docker service create --name="config-server-1" \
   --network ocds-network \
   --dns 10.0.20.115 \
   --with-registry-auth \
-  dev.docker-registry.eprocurement.systems/e-config-server:17.12.1
+  dev.docker-registry.eprocurement.systems/config-server:17.12.1
