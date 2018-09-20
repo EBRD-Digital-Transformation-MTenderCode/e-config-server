@@ -19,7 +19,7 @@
     <properties>
         <!--Project-->
         <final-artifact-name>${project.artifactId}-${project.version}</final-artifact-name>
-        <project.service.port>8700</project.service.port>
+        <project.service.port>8080</project.service.port>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
