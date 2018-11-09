@@ -1,3 +1,6 @@
 target/
 .idea
 *.iml
+/scripts/
+/docs/run _in_docker_fill.txt
+/docs/run _in_swarm_fill.txt
